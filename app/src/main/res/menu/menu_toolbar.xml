@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/smile"
+        android:icon="@drawable/baseline_tag_faces_24"
+        android:title="Button 1"
+        android:contentDescription="Button 1"
+        app:showAsAction="ifRoom" />
+
+
+    <item
+        android:id="@+id/moon"
+        android:icon="@drawable/baseline_shield_moon_24"
+        android:title="Button 2"
+        android:contentDescription="Button 2"
+        app:showAsAction="ifRoom" />
+</menu>

@@ -8,4 +8,8 @@
     <color name="sky2">#817D67</color>
     <color name="sky3">#EB8001</color>
     <color name="sky4">#05192E</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#36FF00</color>
+    <color name="realblue">#0040FF</color>
+
 </resources>

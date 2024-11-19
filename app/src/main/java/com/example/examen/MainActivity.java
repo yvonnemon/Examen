@@ -2,9 +2,12 @@ package com.example.examen;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -23,18 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        //setSupportActionBar(toolbar);
-        if (toolbar == null) {
-            Log.e("MainActivity", "Toolbar is null");
-        } else {
-            setSupportActionBar(toolbar);
-        }
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Puesta de sol");
-            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-        }
 
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -45,6 +37,14 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        //setSupportActionBar(toolbar);
+        if (toolbar == null) {
+            Log.e("MainActivity", "Toolbar is null");
+        } else {
+            setSupportActionBar(toolbar);
+        }
 
         FrameLayout frameLayout = findViewById(R.id.sky);
         ImageView imageView = findViewById(R.id.sun);
@@ -79,5 +79,30 @@ public class MainActivity extends AppCompatActivity {
             moveDownAnimator.start();
             colorAnimator.start();
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_toolbar, menu);  // Inflates the menu
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.smile) {
+            // Navigate to Activity 1 when Button 1 is clicked
+            //Intent intent1 = new Intent(this, MainActivity.class);
+            //startActivity(intent1);
+            return true;
+        } else if (id == R.id.moon) {
+            // Navigate to Activity 2 when Button 2 is clicked
+            Intent intent2 = new Intent(this, SecondActivity.class);
+            startActivity(intent2);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

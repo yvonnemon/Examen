@@ -7,52 +7,54 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+    <!-- Toolbar at the top -->
+
+
+    <!-- Sky section with sun animation -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/blue"
+        android:theme="?attr/actionBarTheme"
+        android:title="@string/puesta_de_sol"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/white" />
+
+    <FrameLayout
+        android:id="@+id/sky"
+        android:layout_width="0dp"
+        android:layout_height="448dp"
+        android:background="@color/sky1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <ViewAnimator
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/sun"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:contentDescription="sun"
+                app:srcCompat="@drawable/baseline_circle_24" />
+        </ViewAnimator>
+    </FrameLayout>
+
+    <!-- Sea section below the sky -->
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/sea"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.026">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/blue"
-            android:title="@string/puesta_de_sol"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme" />
-
-        <FrameLayout
-            android:id="@+id/sky"
-            android:layout_width="match_parent"
-            android:layout_height="448dp"
-            android:background="@color/sky1">
-
-            <ViewAnimator
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/sun"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_gravity="center"
-                    android:contentDescription="sun"
-                    app:srcCompat="@drawable/baseline_circle_24" />
-            </ViewAnimator>
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/sea">
-
-        </FrameLayout>
-
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@id/sky" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
